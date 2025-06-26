@@ -335,9 +335,140 @@ $users = ['ali','hamad','zahid','khattak']
     // after this code in app you can use the component 
   ```
 
+#
+
+## <p align='center'> Day 3</p>
+
+<br>
+
+  ##### <p align='center'>Form and inputs Field in Laravel</p>
+
+  ###### <p align='center'>Methods in forms</p>
+    1. Get :- Get method of form is less secure because its value is visible in the URL.
+    2. Post :- Post method of the form is more secure because the data is not visible to anyone.
+
+- so first create a form in a new view with the inputs fields and ***Note*** that the name attribute must be on each input field.
+- once you create the form after this you have to create controller for it when controller done after this you have to crete a route for it so inside the route you have to use the method that you specified in the method attribute of the form and in the action attribute of the form you have to enter the url that is in controller 
+
+- in laravel we must send a token called ***@csrf*** token if you didn't send this token you will get an error of ```419``` 
+
+- after this you code will be run and it will return what you write in the controller function now for get the form data 
+
+- now for get data you have to write **```Request```** and along with it you have to pass a variable like 
+- ***Note*** for a form you have to create a route and also path for it in route page.
+
+```js
+function addUser(Request $req){
+  return $req; // this will show you all the data 
+
+  // now if you want specific data so for it 
+  echo $req->username;
+  echo $req->userEmail;
+  echo $req->userPhone; // etc etc
+}
+```
+
+ ##### <p align='center'>Form handling in Laravel</p>
+
+ - if you use checkboxes in form when you select multiple data like there is an option of skills and there are multiple options like JAVA, PHP, Laravel and you select all. but instead of all the values you will get only one value instead of getting all values. like
+ 
+  ```js
+  function getUserData(Request $req){
+    echo $req->skills; // here you will get an error its because of its an array so have to define as an array in html file
+  }
+  ```
+
+  - for example here is how you can define an array in html 
+
+  ```js
+  <input type="checkbox" value="HTML" name="skills[]" />
+  <input type="checkbox" value="PHP" name="skills[]" />
+  <input type="checkbox" value="Laravel" name="skills[]" /> // here you must have to define as an empty array
+  ```
+
+  - here is how you can get the array data in controller
+  
+  ```js
+  function getUserData(Request $req){
+    print_r($req->skills);
+  }
+  ```
+
+   ##### <p align='center'>Form Validation in Laravel</p>
+
+   - Form validation is the process in which we check about the data is filled by the user is correct or not For example, if you want the must enter their name and username must be atleast 10 characters so for validation you have to write code like.
+   - in controller you have to write like 
+  
+  ```js
+  function getUserData(Request $result){
+    $result->validate([
+      'username'=>'required | min:10 | max:20'; // here the 'username' should be matched with name of the input field
+      'userEmail'=>'required | Email'; // here the userEmail should be matched with the name of input field
+    ])
+  }
+  ```
+
+  - here how you can write validation on views like 
+  
+  ```js
+  
+  <input type="email" name="userEmail" />
+  <span>@error('userEmail'){{$message}}</span>
+  <input type="text" name="username" />
+  <span>@error('username'){{$message}}</span> // this will check if the username validation matched with the defining rules in controller if match the form will be submitted if not the form will not submitted
+  ```
+
+<br>
+
+##### <p align='center'>Apply custom error Messages in form Validation </p>
+
+- if you want to apply custom errors messages so for that you have to pass a second parameter in **validate function** as an array for example
+  
+  ```js
+  function getUserData(Request $result){
+    $result->validate([
+      'userName'=>'required',
+      'userEmail'=>'required | Email | min:3',
+    ], // here you will pass another array for custom messages like 
+    [
+      'userName.required'=>"user must enter their name",
+      'userEmail.min'=>"length of the email should be 3 characters",
+    ]
+    )
+  }
+  ```
+
+- now what if user want to show the old value when the page refresh
+
+```js
+<input type="text" name="userName" value="{{old('userName')}}">
+ // here in the value you have to use old function and pass the name attribute value in it so it will show value after refreshing the page
+```
+
+- now what if user want to color the input field when there is an error in the field so for that 
+ 
+```js
+<input type="text" name="userName" class="{{$errors->first('userEmail')?'input-error':''}}">
+// so her if there is an error the class of input-error will automatically generated , so you have to create the style for it in advance like
+
+<style>
+.input-error{
+  border:2px solid red;
+}
+</style>
+```
+
+
+- ***Note*** the custom validation is comes from a file called **validation.php** and its hide by default in order to see it you have to run the command
+
+```js
+php artisan lang:publish; // this will unhide the folder and you will able to see the custom messages 
+```
+
 <br>
 
 #
+
 ## <p align='center'>Topics Covered</p>
 
 1. **Xampp and Composer**
