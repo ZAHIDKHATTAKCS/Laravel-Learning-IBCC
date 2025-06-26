@@ -334,3 +334,78 @@ $users = ['ali','hamad','zahid','khattak']
     
     // after this code in app you can use the component 
   ```
+
+<br>
+
+#
+## <p align='center'>Topics Covered</p>
+
+1. **Xampp and Composer**
+ 
+2. **install Composer globally** 
+   ```js
+   Composer global require laravel/installer
+   ```
+  
+3. **Create new Project**
+   ```js
+   laravel new ProjectName
+   ```
+4. **Run Project** 
+  ```js
+  php artisan serve
+  ```
+5. **MVC**
+   - **Modal** :- Modal handle CRUD operation its responsiblities to interact with the database
+   - **View** :- The UI part of the project is called view
+   - **Controller** :- Controller is the middle man in between Modal and view it takes request from the user and than act as per the instruction
+6. **Composer.json File** :- Composer is the main file that have all the details about the project like which packages are used which version is use etc.
+7. **Vendor folder** :- all the packages are stored here.
+8. **app folder** :- this is the main folder where core code stores.
+9. **Resources** :- this is the folder where our view are stored
+10. **public folder**
+11. **Storage folder** :- this is the folder if you use excel pdf files in the project they are stored here
+12. **tests folder** :- this is the folder where developer write tests here.
+13. **.env file** :- this is the main file where our secrete keys are stored here
+14. **.env.example file** :- its the copy of env file if you remove something form **.env file** and you need it to get back you can take it from this file
+15. **Routing in Laravel** :- Routing is the path way to the web page 
+16. **Controller in Laravel** :- 
+    ```js
+    php artisan make:controller ControllerName
+    ```
+
+17. **view in Laravel** :- the part that is directly visible to the user is called view.
+    ```js
+    php artisan make: view viewName
+    ```
+18. **Blade Template in Laravel** :- blade template allow you to write php code without ```<?php ?> ``` and allow you to code the backend and frontend within the same file.
+19. **Display Variables in Laravel** :- 
+  ```js 
+  $name = "zahid";
+  {{$name}}
+  ```
+
+20. **Loop in laravel** :- 
+    ```js
+    @for(i=0;i<=10;i++)
+    <h3>{{$i}}</h3>
+    @endfor
+    ```
+21. **Foreach Loop** :- 
+    ```js
+    $users=['a','b','c']
+    @foreach($users as $user)
+    <h4>Welcome to my website {{$user}}
+    @endforeach
+    ```
+22. **Components in Laravel** :- Components are the reusable code in laravel like function that we can reuse again and again.
+    ```js
+    php artisan make:component ComponentName
+    ```
+23. **Call Component**
+
+    ```js
+    <x-MessageAlert />
+    ```
+
+
