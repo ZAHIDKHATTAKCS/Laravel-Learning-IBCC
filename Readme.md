@@ -1,4 +1,4 @@
-## Started Laravel
+a## Started Laravel
 
 - Laravel is the PHP MVC Framework, MVC stands for (Modal View Controller). It is Very Popular Framework of PHP.
 - Laravel is the Framework through which we can create websites and API's.
@@ -464,6 +464,45 @@ function addUser(Request $req){
 ```js
 php artisan lang:publish; // this will unhide the folder and you will able to see the custom messages 
 ```
+
+
+#
+## <p align='center'> Day 4</p>
+
+
+##### <p align='center'>Apply custom validation in Laravel</p>
+
+- custom validation rules let you create your own rules to check if user input is valid when laravel's bulid-in rules like (Required, email, max).
+
+##### <p align='center'>Why use Custom Rules </p>
+
+- sometimes you want to check 
+  - A number must be even
+  - A username must be incldue @
+  - A field must be start with the Uppercase letter etc
+
+  ```js
+  php artisan make:rule rule-name
+
+  // like 
+
+  php artisan make:rule UpperCase // so this will create a folder of Rules in the app folder and a file within it, the name of the file is UpperCase.php so where you can define new rules for validation
+  ```
+  
+##### <p align='center'>URL Generation </p>
+
+- it si the laravel feature through which we can easily working with routing, links and URL's. The URL Generation make our way easy only you have to use only build-in functions. for example,
+
+  ```js
+  Get Current url : - {{URL::current()}} // display the current url
+  Get Full url : - {{URL::full()}} // display the full url with data passed that is show in the url
+  Get Previous url : - {{URL::previous()}} // this will show the previous url like from where this page is opened
+  TO url : - <a href="{{URL::to('home')}}">Homepage</a> // direct url using to function 
+  TO url : - <a href="{{URL::to('home',['name'])}}">Homepage</a> // when we want to pass argument
+  ```
+
+- 
+
 
 <br>
 
