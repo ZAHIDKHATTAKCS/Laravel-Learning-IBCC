@@ -708,7 +708,88 @@ public function handle(Request $request, Closure $next): Response
   }
   ```
 
-- 
+<br/>
+
+#
+
+## <p align='center'> Day 5</p>
+
+#### <p align='center'>Eloquent Model</p>
+
+- Eloquent modal is mostly used for playing with the database like insert data, retreive data, update data and delete data from the table.
+
+- modal i part of the MVC architecture in modal we writes bussiness logics and DB Connections but in laravel we work the database related in modal.
+- in laravel we have an object relational mapper (ORM) feature. through this feature we can easily fetch the data from the database and display it on the UI.
+  
+- ***Note*** 
+  - create controller for fetching data
+  - create modal 
+  - **Note** that the table name will be in plural with the modal while the modal name should be in singular according to the modal like if the table name is **Students** so the modal name will be **Student** . and keep in mind that modal name must be start with the Capital letter.
+
+- for fetching data through modal and controller
+    1. Create A Controller
+    2. Create A Modal
+    3. import Modal in controller head
+    4. save modal path in a variable inside controller function like
+  
+        ```js 
+        function getStudents(){
+          $students = \App\Modals\Students\all(); // store the path with all function the all function is used to fetch the data of that path controller and store it in the students variable and you can use students variable to print the data
+
+          return view('/student',['students'=>$students]); // now here the students is the key that will be used to fetch data in /student view
+        }
+        ```
+    5. now create view
+    6. go to controller and write fetching code like
+        ```js
+        @foreach ($students as $student)
+        <tr>
+            <td>{{$student->name}}</td>
+            <td>{{$student->email}}</td>
+            <td>{{$student->batch}}</td>
+        </tr>
+        @endforeach
+        ```
+
+#### <p align='center'>Inpecting modal</p>
+
+- inspecting modal is the command line feature through which we can see all the details of the table that is connected with the model. like what is the name of that table, what types of fields are here in the table what are the names of the table fields etc.
+
+#### <p align='center'>Http Client</p>
+- Http client is the Laravel feature that is used to call the API in Laravel.
+
+#### <p align='center'>What is API in Laravel</p>
+- API stands for Application Programming Interface.
+- API is act as an interface in between two programming Languages.
+- API can pass data from 
+  - 1 programming language to other
+  - 1 framework to other 
+  - 1 project to other
+
+- API has jSON format data that is understand by almost all the programming language.
+  1. Create Controller with function
+  2. Create View
+- in order to use API first of all you have to call the Http url in controller like 
+  ```js
+  use Illuminate\support\Facades\Http;
+  ```
+
+- now in order to get data from API all we have to do is inside the function we have to store the API data in a variable.
+  ```js
+  function getUser(){
+    $response=Http::get('paste api link here');
+    $return view('user',['data'=>json_decode($response)]); // here the data is the key that you can use to retrieve 
+  }
+  ```
+
+  
+  ```js
+  <h1>{{Print_r($data)}}</h1>
+  <h1>Name : {{$data->name}}</h1>
+  ```
+
+
+
 
 </br>
 
