@@ -712,7 +712,7 @@ public function handle(Request $request, Closure $next): Response
 
 #
 
-## <p align='center'> Day 5</p>
+## <p align='center'> Day 6</p>
 
 #### <p align='center'>Eloquent Model</p>
 
@@ -788,6 +788,50 @@ public function handle(Request $request, Closure $next): Response
   <h1>Name : {{$data->name}}</h1>
   ```
 
+<br/>
+
+#
+
+## <p align='center'> Day 7</p>
+
+#### <p align='center'>Database Query Builder</p>
+
+- The query builder in laravel is a set of easy php methods you use instead of writing raw SQL.
+  - Create Controller
+  - Create View
+  - Import DB in controller
+
+  ```js
+  use Illuminate\support\Facades\DB ; //  this will import all the database queries in your project file
+  ```
+- now for using queries in our project we have to write code in controller like
+  ```js
+  Function funcName(){
+    $result=DB::table('tableName')->get(); // this will fetch all the data
+    return view('employees',['list'=>$result]); // now for receiving on the UI we have to use loop
+
+    // now apply where clause
+    $result=DB::table('employees')->where('phone','123'); // this will only return the data of phone number 123
+
+    // Now Insert Data into Table
+    $result = DB::table('employees')->insert([
+      'name'=>'tony',
+      'email'=>'tony@gmail.com',
+      'phone'=>'123'
+      ]); // this query will insert data into the table
+
+      // Update data
+      $result=DB::table('employees')->where('name','tony')->update(['phone':'123']); // this will update the data where employee name is tony
+
+      // Now Delete Data
+      $result=DB::table('employees')->where('id','2')->delete();
+        if($result){
+            echo 'Data deleted!';
+        }else{
+            echo 'Data not deleted!';
+        }
+  }
+  ```
 
 
 
