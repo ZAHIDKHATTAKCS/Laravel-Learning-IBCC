@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\userController;
 
-use App\Http\Controllers\FileUplaodController;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::post('/user',[userController::class, 'AddUser']);
 
-// Route::view('/userView','user');
+// upload view route
+Route::view('/upload','upload');
 
-// File upload controller Route
-Route::post('FileUpload',[FileUplaodController::class,'FileUpload']);
+// upload controller route
+Route::post('/UploadController',[UploadController::class,'UploadFile']);
 
-// File upload view route
-Route::view('/FileUploadC','fileUpload');
+// Route for display view
+Route::view('display','display');
