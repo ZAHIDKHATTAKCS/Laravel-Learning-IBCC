@@ -17,6 +17,7 @@ class AddStudents extends Controller
 
         if($student){
             echo 'a new student added';
+            return redirect ('/addstudent');
         }else{
             return "there is an error in insertion";
         }
@@ -27,7 +28,11 @@ class AddStudents extends Controller
         return view('studentslist',['data'=>$data]);
     }
 
-    function delete($id){ // id passes from the route
+    function Delete($id){
         $isDeleted = Student::destroy($id);
+        if($isDeleted){
+            return redirect('/getdata');
+        }
     }
+
 }

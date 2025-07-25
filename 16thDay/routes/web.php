@@ -12,8 +12,9 @@ Route::view('/addstudent','addstudents');
 
 Route::post('/addstudent',[AddStudents::class,'AddStudent']);
 
+Route::get('delete/{id}',[AddStudents::class,'Delete']);
+
 // get students data
 Route::get('/getdata',[AddStudents::class,'getList']);
 
-
-Route::get('delete/{id}',[AddStudents::class,'delete']);
+Route::view('/Studentslist' , 'studentslist');

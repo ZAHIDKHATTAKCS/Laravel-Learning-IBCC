@@ -9,19 +9,19 @@
                 <th>Phone</th>
                 <th>Crated_at</th>
                 <th>Updated_at</th>
-                <th>Operations</th>
+                <th>Operation</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($data as $Student)
             <tr>
-                <td>{{$Student->Id}}</td>
+                <td>{{$Student->id}}</td>
                 <td>{{$Student->Name}}</td>
                 <td>{{$Student->Email}}</td>
                 <td>{{$Student->Phone}}</td>
                 <td>{{$Student->created_at}}</td>
                 <td>{{$Student->updated_at}}</td>
-                <td align="center"><a href="{{'delete/'.$Student->Id}}">Delete</a></td>
+                <td><a href="{{'delete/'.$Student->id}}">Delete</a></td>
             </tr>
             @endforeach
         </tbody>
