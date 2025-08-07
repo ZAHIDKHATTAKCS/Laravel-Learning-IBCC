@@ -24,3 +24,6 @@ Route::put('update/{id}',[StudentController::class,'UpdateData']);
 
 // Route for deletion of data
 Route::get('delete/{id}',[StudentController::class,'DeleteData']);
+
+// Route for search functionality 
+Route::get('search',[StudentController::class,'search']);

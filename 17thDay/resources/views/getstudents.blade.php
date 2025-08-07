@@ -1,5 +1,10 @@
 <div align='center'>
     <h3>All the Students data is here</h3>
+    {{-- search form --}}
+    <form action="search" method="get">
+        <input type="text" placeholder="Search With Name ..." name="search" value="{{@$search}}">
+        <button>Search</button>
+    </form>
     <table style="border: 3px solid red;">
         <thead>
             <tr>

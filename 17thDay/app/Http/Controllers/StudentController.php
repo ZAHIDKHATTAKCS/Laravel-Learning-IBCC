@@ -11,8 +11,8 @@ class StudentController extends Controller
     function InsertStudent(Request $request){
         $Student= new Student;
         $Student->name=$request->name;
-        $Student->phone=$request->name;
-        $Student->email=$request->name;
+        $Student->phone=$request->phone;
+        $Student->email=$request->email;
         $Student->save();
         if($Student){
             return redirect('/getstudents');
@@ -51,4 +51,10 @@ class StudentController extends Controller
         return redirect('/getstudents');
     }
     
+
+    // function for search 
+    function search(Request $request){
+        $StudentData = Student::where('name','like',"%$request->search%")->get();
+        return view('/getstudents',['Data'=>$StudentData,'search'=>$request->search]);
+    }
 }
