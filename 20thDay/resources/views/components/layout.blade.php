@@ -7,7 +7,7 @@
     <title>{{$title}}</title>
 </head>
 <body>
-    <div>
+    <div class="header">
         <ul>
             <li>
                 <a href="">Home</a>
@@ -24,16 +24,15 @@
         </ul>
     </div>
 
-    {{-- Component called here --}}
     <div>
         {{$main}}
     </div>
 
-    
+    <footer class="footer">
+        <p>Footer of the Page</p>
+    </footer>
 
-    <div class="footer">
-        <p>Footer Page</p>
-    </div>
+
     <style>
         .footer p{
             position: absolute;
@@ -41,11 +40,13 @@
             background-color: skyblue;
             width: 100%;
             margin: 0;
-            padding:10px;
+            padding: 20px;
             text-align: center;
         }
-        li{
+        ul li {
             display: inline;
+        }
+        li a{
             text-decoration: none;
         }
     </style>
