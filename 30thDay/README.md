@@ -23,3 +23,23 @@
     ```
 
 -   and for this we have to create a proper route for it so when we run it will return data.
+
+<br>
+
+## <p align='center'> Many To One Relationship in Laravel </p>
+
+-   The procedure is same as but here we will consider the second table is first one like when we want to apply many to one relationship so for this we will considered the second table as first table . and we code in the model like
+
+    ```js
+    function list(){
+        return $this->belongsto('App\Models\Seller');
+    }
+    ```
+- and we will code in controller like 
+
+    ```js
+    function data(){
+        $data = Product::with('list')->get();
+        return $data;
+    }
+    ```
